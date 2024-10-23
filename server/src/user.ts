@@ -1,15 +1,15 @@
 import express, { Request, Response, Router } from 'express';
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { z } from "zod";
+import { Prisma, PrismaClient } from '@prisma/client';
 
 const router = Router();
 const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json()); 
-
 
 const signUpSchema = z.object({
   email: z.string().email(),
